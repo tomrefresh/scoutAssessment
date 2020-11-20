@@ -96,6 +96,67 @@ class UserController extends Controller
     }
 
 
+    /**
+     * Update the details on an existing user
+     *
+     * @param  Request $request
+     * @return View
+     */
+    public function update(Request $request)
+    {
+
+        $user = User::find($request->id);
+
+        $rules = [
+            'name' => 'required|max:30',
+            'surname' => 'required|max:30',
+            'job_title' => 'required:max:255',
+        ];
+        if ($user->username != $request->username) {
+            $rules['username'] = 'required|unique:users_dev|max:30';
+        } else {
+            $rules['username'] = 'required|max:30';
+        }
+        if ($user->mobile != $request->mobile) {
+            $rules['mobile'] = 'required|unique:users_dev|numeric|digits_between:10,15';
+        } else {
+            $rules['mobile'] = 'required|numeric|digits_between:10,15';
+        }
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect('/user-edit?id=' . $user->id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        try {
+
+            #Create the user isntance
+            $user->username = $request->username;
+            $user->mobile = $request->mobile;
+            $user->name = $request->name;
+            $user->surname = $request->surname;
+            $user->job_title = $request->job_title;
+            if ($request->has('bio')) {
+                $user->bio = $request->bio;
+            } else {
+                $user->bio = NULL;
+            }
+
+
+            $user->save();
+
+
+            return redirect()->route('user_edit', ['id' => $user->id])->withSuccess('User updated successfully!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            #return with error
+            return redirect()->route('user_edit', ['id' => $user->id])->withError('Something went wrong while updating your user, please try again');
+        }
+    }
+
+
+
 
 
     /**

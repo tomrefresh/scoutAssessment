@@ -3,11 +3,20 @@
 @section('content')
 <div class="container">
 
-    @if(isset($successMessage))
+    <!-- Success or error messages -->
+    @if( Session::has( 'success' ))
     <div class="row ">
         <div class="col-md-12">
             <div class="alert alert-success" role="alert">
-                {{$message}}
+                {{ Session::get( 'success' ) }}
+            </div>
+        </div>
+    </div>
+    @elseif( Session::has( 'warning' ))
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get( 'warning' ) }}
             </div>
         </div>
     </div>
@@ -21,14 +30,14 @@
                     <h4 class="card-head-text">{{$user->name}}</h4>
                 </div>
 
-                <br><br>
-                <form method="POST" action="{{url('add-new-user')}}" id="create-user-form"
-                    oninput='password_confirmation.setCustomValidity(password_confirmation.value != password.value ? "Passwords do not match." : "")'>
-                    @csrf
+                <div class="col-md-8 user-edit-form-container">
+                    <form method="POST" action="{{url('user-update')}}" id="create-user-form">
+                        @csrf
 
-                    <div class=" form-group row required">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-                        <div class="col-md-6">
+                        <input type="hidden" name="id" value="{{$user->id}}">
+
+                        <div class="form-group required">
+                            <label for="name">Name</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                 name="name" value="{{$user->name}}" required autocomplete="name" autofocus
                                 maxlength="30">
@@ -39,11 +48,9 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row required">
-                        <label for="surname" class="col-md-4 col-form-label text-md-right">Surname</label>
-                        <div class="col-md-6">
+                        <div class="form-group required">
+                            <label for="surname">Surname</label>
                             <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
                                 name="surname" value="{{$user->surname}}" required autocomplete="surname" autofocus
                                 maxlength="30">
@@ -54,11 +61,9 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row required">
-                        <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
-                        <div class="col-md-6">
+                        <div class="form-group required">
+                            <label for="username">Username</label>
                             <input id="username" type="text"
                                 class="form-control @error('username') is-invalid @enderror" name="username"
                                 value="{{$user->username}}" required autocomplete="username" autofocus maxlength="30">
@@ -69,13 +74,12 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row required">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">Email Address</label>
-                        <div class="col-md-6">
+                        <div class="form-group required">
+                            <label for="email">Email Address</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{$user->email}}" required autocomplete="email" maxlength="50">
+                                name="email" value="{{$user->email}}" required autocomplete="email" maxlength="50"
+                                disabled>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -83,11 +87,9 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row required">
-                        <label for="mobile" class="col-md-4 col-form-label text-md-right">Mobile Number</label>
-                        <div class="col-md-6">
+                        <div class="form-group required">
+                            <label for="mobile">Mobile Number</label>
                             <input id="mobile" type="tel" class="form-control @error('mobile') is-invalid @enderror"
                                 name="mobile" value="{{$user->mobile}}" required autocomplete="mobile" autofocus
                                 minlength="10" maxlength="15" pattern="[0-9]+" title="Please enter a phone number">
@@ -98,11 +100,9 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="form-group row required">
-                        <label for="job_title" class="col-md-4 col-form-label text-md-right">Job Title</label>
-                        <div class="col-md-6">
+                        <div class="form-group required">
+                            <label for="job_title">Job Title</label>
                             <input id="job_title" type="text"
                                 class="form-control @error('job_title') is-invalid @enderror" name="job_title"
                                 value="{{$user->job_title}}" required autocomplete="job_title" autofocus
@@ -114,15 +114,12 @@
                             </span>
                             @enderror
                         </div>
-                    </div>
 
 
-                    <div class="form-group row">
-                        <label for="bio" class="col-md-4 col-form-label text-md-right">Bio</label>
-                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
                             <textarea id="bio" type="text" class="form-control @error('bio') is-invalid @enderror"
-                                name="bio" value="{{$user->bio}}" autocomplete="bio" autofocus>
-                        </textarea>
+                                name="bio" autocomplete="bio" style="white-space: normal">{{$user->bio}}</textarea>
 
                             @error('bio')
                             <span class="invalid-feedback" role="alert">
@@ -131,13 +128,13 @@
                             @enderror
                         </div>
 
-                    </div>
 
-
-
-
-                </form>
-                <br><br>
+                        <button type="submit" class="btn btn-scout-main" data-toggle="modal"
+                            data-target="#newUserModal">
+                            Save&nbsp; <i class="fa fa-save"></i>
+                        </button>
+                    </form>
+                </div>
 
             </div>
         </div>

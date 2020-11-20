@@ -178,4 +178,48 @@
     margin-top: 5px;
 }
 
+.user-edit-form-container{
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
+.table .thead-dark th {
+    color: #fff;
+    background-color: #2e2e2e;
+    border-color: #454d55;
+}
+
+table.dataTable thead th, table.dataTable tfoot th {
+    font-weight: 400 !important;
+
+}
+
+.action-btn{
+    width: 40px;
+}
+
+.action-btn-container{
+    width: 90px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .dataTables_length{
+        display: none !important;
+    }
+  }
+
+  .users-table{
+    overflow: hidden !important;
+    max-width: 100px !important;
+    width: 100px !important;
+  }
+
+
+  .td-limit {
+    max-width: 70px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

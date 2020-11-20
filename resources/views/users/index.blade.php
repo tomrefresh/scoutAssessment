@@ -36,7 +36,7 @@
                         <div class="col-auto justify-content-end">
                             <button type="button" class="btn btn-scout-main" data-toggle="modal"
                                 data-target="#newUserModal">
-                                Add New
+                                Add New&nbsp; <i class="fa fa-user-o"> </i>
                             </button>
                         </div>
                     </div>
@@ -62,18 +62,22 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->mobile}}</td>
                                 <td>
-                                    <a class="white-text" href="{{ route('edit_user',['id' => $user->id]) }}">
-                                        <button type="button" class="btn btn-scout-secondary ">
-                                            <i class="fa fa-edit"></i>
-                                        </button>
-                                    </a>
+                                    <div class="action-btn-container float-right">
+                                        <a class="white-text" href="{{ route('user_edit',['id' => $user->id]) }}"
+                                            data-toggle="tooltip" title="Edit user">
+                                            <button type="button" class="btn btn-scout-secondary action-btn">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </a>
 
-                                    <a class="white-text" href="{{ route('destory_user',['id' => $user->id]) }}">
-                                        <button type="button" class="btn btn-scout-danger "
-                                            onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </a>
+                                        <a class="white-text" href="{{ route('user_destroy',['id' => $user->id]) }}">
+                                            <button type="button" class="btn btn-scout-danger action-btn"
+                                                onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')"
+                                                data-toggle="tooltip" title="Delete user">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
@@ -105,6 +109,11 @@
     @if (count($errors) > 0)
     window.onload = function() {
         $('#newUserModal').modal('show');
+        $(document).ready(function() {
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+        });
+
+
     }
     @endif
 </script>

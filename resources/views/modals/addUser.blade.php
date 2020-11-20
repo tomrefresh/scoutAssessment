@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{url('add-new-user')}}" id="create-user-form"
+                <form method="POST" action="{{url('user-create')}}" id="create-user-form"
                     oninput='password_confirmation.setCustomValidity(password_confirmation.value != password.value ? "Passwords do not match." : "")'>
                     @csrf
 
@@ -109,8 +109,7 @@
                         <label for="bio" class="col-md-4 col-form-label text-md-right">Bio</label>
                         <div class="col-md-6">
                             <textarea id="bio" type="text" class="form-control @error('bio') is-invalid @enderror"
-                                name="bio" value="{{ old('bio') }}" autocomplete="bio" autofocus>
-                            </textarea>
+                                name="bio" value="{{ old('bio') }}" autocomplete="bio" autofocus></textarea>
 
                             @error('bio')
                             <span class="invalid-feedback" role="alert">

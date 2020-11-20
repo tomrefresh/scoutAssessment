@@ -3,11 +3,21 @@
 @section('content')
 <div class="container">
 
-    @if(isset($successMessage))
+
+    <!-- Success or error messages -->
+    @if( Session::has( 'success' ))
     <div class="row ">
         <div class="col-md-12">
             <div class="alert alert-success" role="alert">
-                {{$message}}
+                {{ Session::get( 'success' ) }}
+            </div>
+        </div>
+    </div>
+    @elseif( Session::has( 'warning' ))
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get( 'warning' ) }}
             </div>
         </div>
     </div>
@@ -21,7 +31,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <h4>Users</h4>
+                            <h4 class="card-head-text">Users</h4>
                         </div>
                         <div class="col-auto justify-content-end">
                             <button type="button" class="btn btn-scout-main" data-toggle="modal"
@@ -87,9 +97,6 @@
 
 @section('footer-scripts')
 <script src="{{ asset('js/users.js') }}" defer></script>
-@endsection
-
-
 <script type="text/javascript">
     @if (count($errors) > 0)
     window.onload = function() {
@@ -97,5 +104,9 @@
     }
     @endif
 </script>
+@endsection
+
+
+
 
 @endsection

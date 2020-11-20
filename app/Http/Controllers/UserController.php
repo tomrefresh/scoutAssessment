@@ -22,7 +22,6 @@ class UserController extends Controller
 
     public function index()
     {
-
         $users = User::orderBy('name')->get();
         return view('users.index')->with('users', $users);
     }
@@ -38,26 +37,22 @@ class UserController extends Controller
     public function create(Request $request)
     {
 
-
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users_dev|max:30',
             'email' => 'required|email|unique:users_dev|max:50',
             'password' => 'required|min:8|max:60|confirmed',
-            'mobile' => 'required|numeric|digits_between:10,15',
+            'mobile' => 'required|unique:users_dev|numeric|digits_between:10,15',
             'name' => 'required|max:30',
             'surname' => 'required|max:30',
             'job_title' => 'required:max:255',
 
 
         ]);
-
         if ($validator->fails()) {
             return redirect('/')
                 ->withErrors($validator)
                 ->withInput();
         }
-
-
 
         try {
 
@@ -75,18 +70,15 @@ class UserController extends Controller
             } else {
                 $user->bio = NULL;
             }
-
             $user->save();
-
 
             #return to index page
             $users = User::orderBy('name')->get();
-
-
-            return redirect('users.index')->with('users', $users)->with('successMessage', 'User added successfully');
+            return redirect('/')->with('users', $users)->withSuccess('User added successfully!');
         } catch (\Illuminate\Database\QueryException $e) {
-            dd($e);
-            return $e;
+            #return with error
+            $users = User::orderBy('name')->get();
+            return redirect('/')->with('users', $users)->withError('Something went wrong while adding your user, please try again');
         }
     }
 }

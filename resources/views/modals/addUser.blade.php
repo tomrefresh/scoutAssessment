@@ -104,12 +104,11 @@
                         </div>
                     </div>
 
-
                     <div class="form-group row">
                         <label for="bio" class="col-md-4 col-form-label text-md-right">Bio</label>
                         <div class="col-md-6">
                             <textarea id="bio" type="text" class="form-control @error('bio') is-invalid @enderror"
-                                name="bio" value="{{ old('bio') }}" autocomplete="bio" autofocus></textarea>
+                                name="bio" autocomplete="bio" autofocus>{{ old('bio') }}</textarea>
 
                             @error('bio')
                             <span class="invalid-feedback" role="alert">
@@ -118,7 +117,6 @@
                             @enderror
                         </div>
                     </div>
-
 
                     <div class="form-group row required">
                         <label for="password"
@@ -143,8 +141,6 @@
                                 required autocomplete="new-password" maxlength="60" minlength="8">
                         </div>
                     </div>
-
-
                 </form>
             </div>
             <div class="modal-footer">

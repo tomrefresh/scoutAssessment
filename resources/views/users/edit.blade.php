@@ -39,8 +39,8 @@
                         <div class="form-group required">
                             <label for="name">Name</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{$user->name}}" required autocomplete="name" autofocus
-                                maxlength="30">
+                                name="name" value="@if(old('name')){{old('name')}}@else{{$user->name}}@endif" required
+                                autocomplete="name" autofocus maxlength="30">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -52,8 +52,9 @@
                         <div class="form-group required">
                             <label for="surname">Surname</label>
                             <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
-                                name="surname" value="{{$user->surname}}" required autocomplete="surname" autofocus
-                                maxlength="30">
+                                name="surname"
+                                value="@if(old('surname')){{old('surname')}}@else{{$user->surname}}@endif" required
+                                autocomplete="surname" autofocus maxlength="30">
 
                             @error('surname')
                             <span class="invalid-feedback" role="alert">
@@ -66,7 +67,8 @@
                             <label for="username">Username</label>
                             <input id="username" type="text"
                                 class="form-control @error('username') is-invalid @enderror" name="username"
-                                value="{{$user->username}}" required autocomplete="username" autofocus maxlength="30">
+                                value="@if(old('username')){{old('username')}}@else{{$user->username}}@endif" required
+                                autocomplete="username" autofocus maxlength="30">
 
                             @error('username')
                             <span class="invalid-feedback" role="alert">
@@ -78,8 +80,8 @@
                         <div class="form-group required">
                             <label for="email">Email Address</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{$user->email}}" required autocomplete="email" maxlength="50"
-                                disabled>
+                                name="email" value="@if(old('email')){{old('email')}}@else{{$user->email}}@endif"
+                                required autocomplete="email" maxlength="50" disabled>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -91,8 +93,9 @@
                         <div class="form-group required">
                             <label for="mobile">Mobile Number</label>
                             <input id="mobile" type="tel" class="form-control @error('mobile') is-invalid @enderror"
-                                name="mobile" value="{{$user->mobile}}" required autocomplete="mobile" autofocus
-                                minlength="10" maxlength="15" pattern="[0-9]+" title="Please enter a phone number">
+                                name="mobile" value="@if(old('mobile')){{old('mobile')}}@else{{$user->mobile}}@endif"
+                                required autocomplete="mobile" autofocus minlength="10" maxlength="15" pattern="[0-9]+"
+                                title="Please enter a phone number">
 
                             @error('mobile')
                             <span class="invalid-feedback" role="alert">
@@ -105,8 +108,8 @@
                             <label for="job_title">Job Title</label>
                             <input id="job_title" type="text"
                                 class="form-control @error('job_title') is-invalid @enderror" name="job_title"
-                                value="{{$user->job_title}}" required autocomplete="job_title" autofocus
-                                maxlength="100">
+                                value="@if(old('job_title')){{old('job_title')}}@else{{$user->job_title}}@endif"
+                                required autocomplete="job_title" autofocus maxlength="100">
 
                             @error('job_title')
                             <span class="invalid-feedback" role="alert">
@@ -119,7 +122,8 @@
                         <div class="form-group">
                             <label for="bio">Bio</label>
                             <textarea id="bio" type="text" class="form-control @error('bio') is-invalid @enderror"
-                                name="bio" autocomplete="bio" style="white-space: normal">{{$user->bio}}</textarea>
+                                name="bio" autocomplete="bio"
+                                style="white-space: normal">@if(old('bio')){{old('bio')}}@else{{$user->bio}}@endif</textarea>
 
                             @error('bio')
                             <span class="invalid-feedback" role="alert">

@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'username' => $this->faker->userName,
             'email' => $this->faker->unique()->safeEmail,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'mobile' => $this->faker->e164PhoneNumber,
+            'mobile' => '072' . $this->faker->randomDigit . $this->faker->randomDigit . $this->faker->randomDigit . $this->faker->randomDigit . $this->faker->randomDigit . $this->faker->randomDigit . $this->faker->randomDigit,
             'name' => $this->faker->firstName(),
             'surname' => $this->faker->lastName(),
             'job_title' => $this->faker->jobTitle,

@@ -12,4 +12,10 @@ $(document).ready(function () {
     });
 
 
+
+    //Enable tooltips
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+
+
 });

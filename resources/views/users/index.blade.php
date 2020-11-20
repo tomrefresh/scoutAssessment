@@ -44,9 +44,7 @@
                 </div>
                 <div class="table-responsive table-padding">
                     <table class="table table-hover table-btm-spacer" id="usersTable">
-
                         <thead class="thead-dark top-spacer">
-
                             <tr>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
@@ -63,14 +61,15 @@
                                 <td>{{$user->mobile}}</td>
                                 <td>
                                     <div class="action-btn-container float-right">
-                                        <a class="white-text" href="{{ route('user_edit',['id' => $user->id]) }}"
-                                            data-toggle="tooltip" title="Edit user">
+                                        <a class="white-text btn-link btn-link"
+                                            href="{{ route('user_edit',['id' => $user->id]) }}" data-toggle="tooltip"
+                                            title="Edit user">
                                             <button type="button" class="btn btn-scout-secondary action-btn">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
-
-                                        <a class="white-text" href="{{ route('user_destroy',['id' => $user->id]) }}">
+                                        <a class="white-text btn-link"
+                                            href="{{ route('user_destroy',['id' => $user->id]) }}">
                                             <button type="button" class="btn btn-scout-danger action-btn"
                                                 onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')"
                                                 data-toggle="tooltip" title="Delete user">
@@ -83,7 +82,6 @@
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
                 <!-- No users in table -->
                 @if(count($users) == 0)
@@ -99,21 +97,18 @@
 </div>
 </div>
 
+<!-- Create new user modal -->
 @include('modals\addUser')
-
 
 
 @section('footer-scripts')
 <script src="{{ asset('js/users.js') }}" defer></script>
+
+<!-- Check to show php-validated modal errors -->
 <script type="text/javascript">
     @if (count($errors) > 0)
     window.onload = function() {
         $('#newUserModal').modal('show');
-        $(document).ready(function() {
-            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-        });
-
-
     }
     @endif
 </script>

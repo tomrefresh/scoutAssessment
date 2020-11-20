@@ -13,8 +13,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- MDBootstrap Datatables  -->
     <script src="{{ asset('datatables/datatables.min.js') }}" defer></script>
+    <script src="{{ asset('js/dataTables.bootstrap5.min.js') }}" defer></script>
+
 
 
     <!-- Fonts -->
@@ -23,8 +24,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- MDBootstrap Datatables  -->
-    <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
+
+
 
 </head>
 
@@ -53,12 +55,12 @@
                             <a class="nav-link" href=""></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('/') }}" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Menu <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">Users</a>
+                                <a class="dropdown-item" href="{{ url('/') }}">Users</a>
                             </div>
                         </li>
 

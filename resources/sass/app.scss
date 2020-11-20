@@ -6,3 +6,178 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+//Import font awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+
+
+
+.btn-scout-main {
+    color: #FFFFFF;
+    background-color: #3AC0C3;
+    border-color: #35A4A6;
+  }
+
+  .btn-scout-main:hover,
+  .btn-scout-main:focus,
+  .btn-scout-main:active,
+  .btn-scout-main.active,
+  .open .dropdown-toggle.btn-scout-main {
+    color: #FFFFFF;
+    background-color: #389FA1;
+    border-color: #35A4A6;
+  }
+
+  .btn-scout-main:active,
+  .btn-scout-main.active,
+  .open .dropdown-toggle.btn-scout-main {
+    background-image: none;
+  }
+
+  .btn-scout-main.disabled,
+  .btn-scout-main[disabled],
+  fieldset[disabled] .btn-scout-main,
+  .btn-scout-main.disabled:hover,
+  .btn-scout-main[disabled]:hover,
+  fieldset[disabled] .btn-scout-main:hover,
+  .btn-scout-main.disabled:focus,
+  .btn-scout-main[disabled]:focus,
+  fieldset[disabled] .btn-scout-main:focus,
+  .btn-scout-main.disabled:active,
+  .btn-scout-main[disabled]:active,
+  fieldset[disabled] .btn-scout-main:active,
+  .btn-scout-main.disabled.active,
+  .btn-scout-main[disabled].active,
+  fieldset[disabled] .btn-scout-main.active {
+    background-color: #3AC0C3;
+    border-color: #35A4A6;
+  }
+
+  .btn-scout-main .badge {
+    color: #3AC0C3;
+    background-color: #FFFFFF;
+  }
+
+
+.btn-scout-secondary {
+    color: #ffffff;
+    background-color: #9ACA3C;
+    border-color: #86B32D;
+  }
+
+  .btn-scout-secondary:hover,
+  .btn-scout-secondary:focus,
+  .btn-scout-secondary:active,
+  .btn-scout-secondary.active,
+  .open .dropdown-toggle.btn-scout-secondary {
+    color: #ffffff;
+    background-color: #79AD11;
+    border-color: #86B32D;
+  }
+
+  .btn-scout-secondary:active,
+  .btn-scout-secondary.active,
+  .open .dropdown-toggle.btn-scout-secondary {
+    background-image: none;
+  }
+
+  .btn-scout-secondary.disabled,
+  .btn-scout-secondary[disabled],
+  fieldset[disabled] .btn-scout-secondary,
+  .btn-scout-secondary.disabled:hover,
+  .btn-scout-secondary[disabled]:hover,
+  fieldset[disabled] .btn-scout-secondary:hover,
+  .btn-scout-secondary.disabled:focus,
+  .btn-scout-secondary[disabled]:focus,
+  fieldset[disabled] .btn-scout-secondary:focus,
+  .btn-scout-secondary.disabled:active,
+  .btn-scout-secondary[disabled]:active,
+  fieldset[disabled] .btn-scout-secondary:active,
+  .btn-scout-secondary.disabled.active,
+  .btn-scout-secondary[disabled].active,
+  fieldset[disabled] .btn-scout-secondary.active {
+    background-color: #9ACA3C;
+    border-color: #86B32D;
+  }
+
+  .btn-scout-secondary .badge {
+    color: #9ACA3C;
+    background-color: #ffffff;
+  }
+
+
+  .btn-scout-danger {
+    color: #ffffff;
+    background-color: #C73B3B;
+    border-color: #B83333;
+  }
+
+  .btn-scout-danger:hover,
+  .btn-scout-danger:focus,
+  .btn-scout-danger:active,
+  .btn-scout-danger.active,
+  .open .dropdown-toggle.btn-scout-danger {
+    color: #ffffff;
+    background-color: #BD2424;
+    border-color: #B83333;
+  }
+
+  .btn-scout-danger:active,
+  .btn-scout-danger.active,
+  .open .dropdown-toggle.btn-scout-danger {
+    background-image: none;
+  }
+
+  .btn-scout-danger.disabled,
+  .btn-scout-danger[disabled],
+  fieldset[disabled] .btn-scout-danger,
+  .btn-scout-danger.disabled:hover,
+  .btn-scout-danger[disabled]:hover,
+  fieldset[disabled] .btn-scout-danger:hover,
+  .btn-scout-danger.disabled:focus,
+  .btn-scout-danger[disabled]:focus,
+  fieldset[disabled] .btn-scout-danger:focus,
+  .btn-scout-danger.disabled:active,
+  .btn-scout-danger[disabled]:active,
+  fieldset[disabled] .btn-scout-danger:active,
+  .btn-scout-danger.disabled.active,
+  .btn-scout-danger[disabled].active,
+  fieldset[disabled] .btn-scout-danger.active {
+    background-color: #C73B3B;
+    border-color: #B83333;
+  }
+
+  .btn-scout-danger .badge {
+    color: #C73B3B;
+    background-color: #ffffff;
+  }
+
+
+  .white-text{
+      color: white;
+  }
+
+  .form-group.required .col-form-label:after {
+    content:" *";
+    color:red;
+ }
+
+
+ .table-padding{
+     padding: 20px;
+ }
+
+
+
+ .dataTables_filter{
+     margin-bottom: 5px ;
+ }
+
+
+
+ .table-btm-spacer{
+     margin-bottom: 10px !important;
+ }
+
+

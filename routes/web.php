@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [UserController::class, 'index'])->name('users');
+Route::post('/add-new-user', [UserController::class, 'create'])->name('create_user');

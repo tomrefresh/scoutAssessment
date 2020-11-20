@@ -12,17 +12,24 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $table = 'users_dev';
-
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'mobile',
+        'name',
+        'surname',
+        'job_title',
+        'bio',
     ];
+
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,6 +38,5 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 }

@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- MDBootstrap Datatables  -->
+    <script src="{{ asset('datatables/datatables.min.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +23,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- MDBootstrap Datatables  -->
+    <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -82,5 +89,10 @@
         </main>
     </div>
 </body>
+
+
+
+@yield('footer-scripts')
+
 
 </html>

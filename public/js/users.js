@@ -10,9 +10,5 @@ $(document).ready(function () {
 
     });
 
-    //Frontend validation
-    $("form :input").change(function () {
-        $(this).password.setCustomValidity(password_confirmation.value != password.value ? "Passwords do not match." : "")
-    });
 
 });

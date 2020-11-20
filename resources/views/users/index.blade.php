@@ -62,14 +62,18 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->mobile}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-scout-secondary ">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-scout-danger "
-                                        onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')">
+                                    <a class="white-text" href="{{ route('edit_user',['id' => $user->id]) }}">
+                                        <button type="button" class="btn btn-scout-secondary ">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                    </a>
 
-                                        <i class="fa fa-trash"></i>
-                                    </button>
+                                    <a class="white-text" href="{{ route('destory_user',['id' => $user->id]) }}">
+                                        <button type="button" class="btn btn-scout-danger "
+                                            onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

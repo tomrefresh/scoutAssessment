@@ -81,4 +81,44 @@ class UserController extends Controller
             return redirect('/')->with('users', $users)->withError('Something went wrong while adding your user, please try again');
         }
     }
+
+
+    /**
+     * View the edit page for a user
+     *
+     * @param  Request $request
+     * @return View
+     */
+    public function edit()
+    {
+        $user = User::findOrFail(request()->query('id'));
+        return view('users.edit')->with('user', $user);
+    }
+
+
+
+
+    /**
+     * Permanently delete this user
+     *
+     * @param  Request $request
+     * @return View
+     */
+    public function destroy()
+    {
+
+        DB::beginTransaction();
+        try {
+            $user = User::findOrFail(request()->query('id'));
+            $user->delete();
+            DB::commit();
+            $users = User::orderBy('name')->get();
+            return redirect('/')->with('users', $users)->withSuccess('User deleted successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollBack();
+            #return with error
+            $users = User::orderBy('name')->get();
+            return redirect('/')->with('users', $users)->withError('Something went wrong while adding your user, please try again');
+        }
+    }
 }

@@ -1,7 +1,7 @@
 
 ## Prerequisites
 
-- Apache/MySQL/PHP server
+- Apache/MySQL/PHP(7.4) server
 - Composer installed        (https://getcomposer.org/download/)
 - npm installed             (https://nodejs.org/en/download/)
 - A mysql database + user

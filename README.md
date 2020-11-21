@@ -11,11 +11,11 @@
 - clone the repo
 - navigate to the repo clone
 - edit the .env file and update these fields with your database details: [DB_DATABASE,DB_USERNAME,DB_PASSWORD] (I have included the .env file inside the repo against standard practice to make this setup process simpler)
-- Run below command (install the laravel project
+- Run the below command (install the laravel project
 ```
 composer install
 ```
-- Run below command (install the scripts)
+- Run the below command (install the scripts)
 ```
 npm install
 ```

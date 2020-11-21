@@ -27,7 +27,9 @@
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
-                    <h4 class="card-head-text">{{$user->name}}</h4>
+
+                    <h4 class="card-head-text"> <a href="/"><i class="fa fa-arrow-left"> </i></a> &nbsp; {{$user->name}}
+                    </h4>
                 </div>
 
                 <div class="col-md-8 user-edit-form-container">
@@ -132,7 +134,7 @@
                             @enderror
                         </div>
 
-
+                        <br>
                         <button type="submit" class="btn btn-scout-main" data-toggle="modal"
                             data-target="#newUserModal">
                             Save&nbsp; <i class="fa fa-save"></i>

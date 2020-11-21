@@ -68,10 +68,10 @@
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
-                                        <a class="white-text btn-link"
-                                            href="{{ route('user_destroy',['id' => $user->id]) }}">
-                                            <button type="button" class="btn btn-scout-danger action-btn"
-                                                onclick="return confirm('Are you sure youw ant to delete {{$user->name}} {{$user->surname}}?')"
+                                        <a class="white-text btn-link delete-user-btn"
+                                            href="{{ route('user_destroy',['id' => $user->id]) }}"
+                                            data-username="{{$user->name}} {{$user->surname}}">
+                                            <button type="button" class="btn btn-scout-danger action-btn "
                                                 data-toggle="tooltip" title="Delete user">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -97,6 +97,8 @@
 </div>
 </div>
 
+<div class="mt-5"></div>
+
 <!-- Create new user modal -->
 @include('modals\addUser')
 
@@ -113,7 +115,6 @@
     @endif
 </script>
 @endsection
-
 
 
 

@@ -21,7 +21,7 @@ npm install
 ```
 - Run the below command (build minified scripts/css)
 ```
-npm build prod 
+npm run prod 
 ```
 - *OPTIONAL* - Run the below command to create the users_dev table inside the database (No need if you have chosen a database that already has the table)
 ```

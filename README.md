@@ -11,27 +11,27 @@
 - clone the repo
 - navigate to the repo clone
 - edit the .env file and update these fields with your database details: [DB_DATABASE,DB_USERNAME,DB_PASSWORD] (I have included the .env file inside the repo against standard practice to make this setup process simpler)
-- run 
+- Run below command (install the laravel project
 ```
 composer install
 ```
-- run 
+- Run below command (install the scripts)
 ```
 npm install
 ```
-- run 
+- Run the below command (build minified scripts/css)
 ```
-npm build prod
+npm build prod 
 ```
-- *OPTIONAL* - Run the below command to create the users_dev table inside the database (No need if you have chosen a database that already has the table) 
+- *OPTIONAL* - Run the below command to create the users_dev table inside the database (No need if you have chosen a database that already has the table)
 ```
-php artisan migrate
+php artisan migrate 
 ```
 - *OPTIONAL* - Run the below command to add 20 fake users to the table
 ```
-php artisan db:seed
+php artisan db:seed 
 ```
-- run (to start the server)
+- Run the below command (to start the server)
 ```
 php artisan serve
 ```

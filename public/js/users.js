@@ -7,8 +7,6 @@ $(document).ready(function () {
         "columnDefs": [
             { "orderable": false, "targets": 3 }
         ],
-
-
     });
 
 
@@ -42,12 +40,7 @@ $(document).ready(function () {
             });
         return false;
 
-
-
-
-
     });
-
 
 
 
